@@ -1,6 +1,6 @@
-﻿# nokto-data-validator
+# nokto-data-validator
 
-Generic structured-document validator for Markdown libraries. Validates files against declared schemas â€” checking required fields, sections, and variable placeholders.
+Structured-document validator for Markdown libraries, with a generic `Schema` API. Ships with Nokto's own default prompt-library schema (Norwegian `ID`/`NAVN`/`STYRKE`/`BRUK`/`REGLER`-format) — validates files against declared schemas, checking required fields, sections, and variable placeholders.
 
 ## Installation
 

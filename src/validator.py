@@ -1,4 +1,4 @@
-﻿"""
+"""
 Generic structured-document validator.
 
 Validates that Markdown files in a library conform to a declared schema.
@@ -122,7 +122,7 @@ def main(argv: list[str] | None = None) -> int:
 
     print()
     if all_errors:
-        print(f"RESULT: FAIL â€” {len(all_errors)} error(s)")
+        print(f"RESULT: FAIL — {len(all_errors)} error(s)")
         return 1
 
     if all_warnings:
