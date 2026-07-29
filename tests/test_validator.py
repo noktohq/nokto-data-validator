@@ -74,15 +74,14 @@ def test_missing_section(tmp_md):
 
         ## BRUK
         ...
-        ## REGLER
-        ...
         ## HVIS INPUT MANGLER
         ...
         ## INPUT
         {{X}}
     """)
     result = validate_file(path, schema=GENERATOR_SCHEMA)
-    assert result.ok
+    assert not result.ok
+    assert any("REGLER" in e for e in result.errors)
 
 
 def test_input_without_placeholders(tmp_md):
