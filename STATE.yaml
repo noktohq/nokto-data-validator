@@ -11,20 +11,20 @@ waiting: []
 blockers: []
 decisions_needed: []
 done:
-- what: 'fix(ci): requirements.txt slik at pytest installeres'
-  at: '2026-07-29'
-  evidence: commit 2de936f
+  - what: 'fix(ci): requirements.txt slik at pytest installeres'
+    at: '2026-07-29'
+    evidence: commit 2de936f
 milestones:
-- id: v1
-  title: Initial public implementation
-  status: done
-  date: '2026-06-08'
-  evidence: commit 64b727e
-- id: tester
-  title: 6 tester, CI installerer pytest
-  status: done
-  date: '2026-07-29'
-  evidence: commit 2de936f
+  - id: v1
+    title: Initial public implementation
+    status: done
+    date: '2026-06-08'
+    evidence: commit 64b727e
+  - id: tester
+    title: 6 tester, CI installerer pytest
+    status: done
+    date: '2026-07-29'
+    evidence: commit 2de936f
 environment:
   runtime: Python, ingen runtime-avhengigheter; pytest
   deploy: pip/npm — bibliotek, ingen deploy
@@ -39,6 +39,6 @@ last_session: null
 security_findings: []
 updated_at: '2026-09-21T05:37:48Z'
 sources:
-- README.md
-- commits
-- GitHub-snapshot 2026-09-21
+  - README.md
+  - commits
+  - GitHub-snapshot 2026-09-21
