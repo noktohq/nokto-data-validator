@@ -34,6 +34,32 @@ if not result.ok:
 results = validate_directory(Path("./library"))
 ```
 
+### Choosing the schema
+
+Pick the schema from explicit context, not from the content being validated:
+
+```bash
+python -m src.validator ./library --schema generator          # one schema for every file
+python -m src.validator ./library --manifest schemas.json     # per-path rules
+```
+
+```json
+{"rules": [
+  {"pattern": "referanse/*", "schema": "reference"},
+  {"pattern": "README.md",   "schema": "skip"},
+  {"pattern": "*.md",        "schema": "generator"}
+]}
+```
+
+First matching rule wins (`fnmatch` on the path relative to the directory; `*` also matches `/`).
+A file that matches no rule is reported as an error. In Python: `validate_directory(path, schema=...)`
+or `validate_directory(path, rules=load_rules(Path("schemas.json")))`.
+
+Without a schema or rules, the schema is inferred from content (legacy behaviour) and each result
+carries a warning. Since 2026-10 inference is conservative: any generator marker (`ID:`/`NAVN:`/`STYRKE:`
+at line start, or a `BRUK`/`REGLER`/`HVIS INPUT MANGLER` heading) selects the generator schema, so a
+generator that lacks `ID:` fails instead of passing as a reference. The CLI exits 1 when no files match.
+
 ### Custom schema
 
 ```python
